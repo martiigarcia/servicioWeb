@@ -1,9 +1,12 @@
 package ar.jdbc;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import ar.model.Curso;
 import ar.model.Estudiante;
+import ar.model.NotNullNotEmpty;
 import ar.servicios.Estudiantes;
 
 public class JdbcEstudiantes implements Estudiantes {
@@ -42,5 +45,30 @@ public class JdbcEstudiantes implements Estudiantes {
   
   System.out.println(e.toString());
   System.out.println(cursos);
+ }
+
+ /*@Override
+ public void inscribir(String apellido, String nombreCurso) {
+
+
+  List<Estudiante> estudiantes = this.estudiantes(apellido);
+  Estudiante e = new Estudiante(estudiantes.get(0).nombre(), apellido, nombreCurso);
+
+
+  System.out.println(e);
+  System.out.println(nombreCurso);
+ }*/
+
+ @Override
+ public void inscribir(String apellido, String nombreCurso) {
+  var check = new NotNullNotEmpty("apellido", apellido, "nombreCurso", nombreCurso);
+  check.throwOnError();
+
+  List<Estudiante> estudiantes = this.estudiantes(apellido);
+  Estudiante e = new Estudiante(estudiantes.get(0).nombre(), estudiantes.get(0).apellido(), nombreCurso);
+
+
+  System.out.println(e);
+  System.out.println(nombreCurso);
  }
 }

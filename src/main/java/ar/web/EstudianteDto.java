@@ -7,6 +7,7 @@ public class EstudianteDto {
  private String[] cursos;
 
 
+
  public String getNombre() {
   return nombre;
  }
@@ -22,10 +23,6 @@ public class EstudianteDto {
  public void setApellido(String apellido) {
   this.apellido = apellido;
  }
-
-
-
-
 
  public String[] getCursos() {
   return cursos;

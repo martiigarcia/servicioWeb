@@ -10,4 +10,6 @@ public interface Estudiantes {
   
  void crearEstudiante(String nombre, String apellido,  String[] cursos);
 
+ void inscribir(String apellido, String cursos);
+
 }

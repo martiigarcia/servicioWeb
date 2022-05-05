@@ -17,9 +17,10 @@ public class Curso {
 	  this.id = leftLimit + (long) (Math.random() * (rightLimit - leftLimit));
 	 }
 
- public String numero() {
+ public String nombre() {
   return nombre;
  }
+
 
 
 

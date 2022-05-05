@@ -24,11 +24,20 @@ public class Estudiante {
   this.apellido = apellido;
   this.cursos = new ArrayList<>();
  }
+ public Estudiante(String nombre, String apellido, String nombreCurso) {
 
 
+  var check = new NotNullNotEmpty("nombre", nombre, "apellido", apellido, "nombreCurso" ,nombreCurso);
+  check.throwOnError();
+
+  this.nombre = nombre;
+  this.apellido = apellido;
+  this.cursos = new ArrayList<>();
+  this.cursos.add(new Curso(nombreCurso));
+ }
 
  public void addCurso(String curso) {
-  var check = new NotNullNotEmpty("curso", curso);
+  var check = new NotNullNotEmpty("nombreCurso", curso);
   check.throwOnError();
   this.cursos.add(new Curso(curso));
  }
@@ -45,7 +54,11 @@ public class Estudiante {
  }
  
  public String nombre() {
-  return nombre + " " + apellido;
+  return nombre ;
+ }
+
+ public String apellido() {
+  return apellido ;
  }
 
  @Override
